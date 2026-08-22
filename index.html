@@ -3,40 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Technical SEO Meta Tags -->
     <title>SEO Agency Southampton | Southampton SEO Agency</title>
     <meta
       name="description"
       content="Southampton SEO agency helping businesses grow through Local SEO, technical SEO, content and SEO strategy. Get a free SEO audit today."
     />
     <link rel="canonical" href="https://southamptonseo.agency/" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     
-    <!-- Open Graph Metadata -->
+    <!-- Geo Location Directives -->
+    <meta name="geo.region" content="GB-HAM" />
+    <meta name="geo.placename" content="Southampton" />
+    <meta name="geo.position" content="50.9097;-1.4044" />
+    <meta name="ICBM" content="50.9097, -1.4044" />
+
+    <!-- Google Search Console Verification Placeholder -->
+    <!-- Add your verification code in .env as VITE_GOOGLE_SITE_VERIFICATION or replace content directly -->
+    <meta name="google-site-verification" content="%VITE_GOOGLE_SITE_VERIFICATION%" />
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Open Graph Protocol -->
     <meta property="og:locale" content="en_GB" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Southampton SEO" />
+    <meta property="og:url" content="https://southamptonseo.agency/" />
     <meta property="og:title" content="SEO Agency Southampton | Southampton SEO Agency" />
     <meta
       property="og:description"
-      content="Southampton SEO agency helping businesses grow through Local SEO, technical SEO, content and SEO strategy. Get a free SEO audit today."
+      content="Southampton SEO agency helping businesses grow through Local SEO, technical SEO, content and SEO strategy."
     />
-    <meta property="og:url" content="https://southamptonseo.agency/" />
-    <meta property="og:site_name" content="Southampton SEO" />
-    
-    <!-- Twitter Metadata -->
+    <meta property="og:image" content="https://southamptonseo.agency/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Southampton SEO - Specialist Search Engine Optimization Agency" />
+
+    <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SEO Agency Southampton | Southampton SEO Agency" />
     <meta
       name="twitter:description"
-      content="Southampton SEO agency helping businesses grow through Local SEO, technical SEO, content and SEO strategy. Get a free SEO audit today."
+      content="Southampton SEO agency helping businesses grow through Local SEO, technical SEO, content and SEO strategy."
     />
-    
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="geo.region" content="GB-HAM" />
-    <meta name="geo.placename" content="Southampton" />
+    <meta name="twitter:image" content="https://southamptonseo.agency/og-image.svg" />
+    <meta name="twitter:image:alt" content="Southampton SEO - Specialist Search Engine Optimization Agency" />
 
-    <!-- Google Fonts: Plus Jakarta Sans for crisp modern typography -->
+    <!-- Google Fonts: Plus Jakarta Sans with font-display: swap for performance & LCP -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -52,14 +71,36 @@
           "inLanguage": "en-GB"
         },
         {
-          "@type": "ProfessionalService",
+          "@type": "Organization",
           "@id": "https://southamptonseo.agency/#organization",
           "name": "Southampton SEO",
           "url": "https://southamptonseo.agency/",
-          "description": "Southampton SEO agency providing technical SEO, Local SEO, SEO strategy, content SEO, and Google Business Profile optimization for businesses across Southampton and Hampshire.",
+          "logo": "https://southamptonseo.agency/favicon.svg",
+          "description": "Specialist search engine optimization agency based in Southampton, Hampshire, United Kingdom.",
           "areaServed": [
             {
               "@type": "AdministrativeArea",
+              "name": "Southampton"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Hampshire"
+            }
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://southamptonseo.agency/#localservice",
+          "name": "Southampton SEO",
+          "url": "https://southamptonseo.agency/",
+          "image": "https://southamptonseo.agency/og-image.svg",
+          "description": "Southampton SEO agency providing technical SEO, Local SEO, SEO strategy, content SEO, and Google Business Profile optimization for businesses across Southampton and Hampshire.",
+          "priceRange": "£299 - £799",
+          "currenciesAccepted": "GBP",
+          "paymentAccepted": "Bank Transfer, Credit Card, Direct Debit",
+          "areaServed": [
+            {
+              "@type": "City",
               "name": "Southampton"
             },
             {
@@ -93,7 +134,7 @@
           ],
           "knowsAbout": [
             "Search Engine Optimization (SEO)",
-            "Local SEO",
+            "Local SEO Southampton",
             "Technical SEO",
             "SEO Strategy",
             "Google Business Profile Optimization",
@@ -102,7 +143,60 @@
             "Structured Data",
             "SEO Audits"
           ],
-          "priceRange": "£299 - £799"
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Southampton SEO Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Local SEO Southampton",
+                  "description": "Dominate high-intent local search queries across Southampton and surrounding Hampshire areas with Google Maps 3-Pack and geo-targeted relevance."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Technical SEO",
+                  "description": "Eliminate the crawling, indexing, and Core Web Vitals bottlenecks that prevent Google from properly evaluating and ranking your website."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "SEO Strategy",
+                  "description": "A dedicated Southampton SEO strategy agency roadmap built around high-value customer search intent, competitor vulnerabilities, and measurable ROI."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Content SEO",
+                  "description": "Authoritative landing pages and topical depth that satisfy search intent and rank sustainably for commercial keywords."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Google Business Profile SEO",
+                  "description": "Google Maps 3-Pack optimization, category precision, local citation consistency, and review generation workflows."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "SEO Audits",
+                  "description": "Forensic website crawl, Core Web Vitals speed analysis, keyword opportunity mapping, and competitor gap review."
+                }
+              }
+            ]
+          }
         },
         {
           "@type": "FAQPage",

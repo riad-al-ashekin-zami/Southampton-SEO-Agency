@@ -58,7 +58,7 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({ onOpenAudi
           </span>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-5">
-            SEO for Southampton Businesses
+            Who We Help in Southampton & Hampshire
           </h2>
 
           <p className="text-lg text-gray-600 leading-relaxed">

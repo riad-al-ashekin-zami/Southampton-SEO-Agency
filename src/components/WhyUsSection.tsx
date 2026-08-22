@@ -33,7 +33,7 @@ export const WhyUsSection: React.FC<WhyUsSectionProps> = ({ onOpenAudit, onOpenS
           </span>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-5">
-            Looking for the Best SEO Agency in Southampton?
+            Why Choose Southampton SEO?
           </h2>
 
           <p className="text-lg text-gray-600 leading-relaxed">

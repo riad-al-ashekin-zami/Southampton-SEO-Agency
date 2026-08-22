@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import {
   ArrowRight,
@@ -12,9 +12,11 @@ import {
   Lock,
 } from 'lucide-react';
 import { AuditFormData } from '../types';
+import { trackFormSubmission } from '../utils/analytics';
 
 export const AuditCTA: React.FC = () => {
-  const [state, handleFormspreeSubmit] = useForm('maewkkrg');
+  const formId = (import.meta as any).env?.VITE_FORMSPREE_FORM_ID || 'maewkkrg';
+  const [state, handleFormspreeSubmit] = useForm(formId);
 
   const [formData, setFormData] = useState<AuditFormData>({
     name: '',
@@ -26,6 +28,12 @@ export const AuditCTA: React.FC = () => {
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof AuditFormData, string>>>({});
+
+  useEffect(() => {
+    if (state.succeeded) {
+      trackFormSubmission('Free SEO Audit', { website: formData.website });
+    }
+  }, [state.succeeded]);
 
   // Quick live interactive preview state
   const [liveDomain, setLiveDomain] = useState('');
@@ -130,7 +138,7 @@ export const AuditCTA: React.FC = () => {
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-5 leading-tight">
-              Find Out What's Holding Your Website Back
+              Get Your Free Southampton SEO Audit
             </h2>
 
             <p className="text-lg text-gray-600 leading-relaxed mb-8">

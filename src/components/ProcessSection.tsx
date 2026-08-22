@@ -23,7 +23,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenAudit }) =
           </span>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-5">
-            A Simple SEO Process
+            How Our Southampton SEO Process Works
           </h2>
 
           <p className="text-lg text-gray-600 leading-relaxed">

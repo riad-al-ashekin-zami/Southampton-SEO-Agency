@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrustBar } from './components/TrustBar';
@@ -20,14 +20,37 @@ import { StickyMobileCTA } from './components/StickyMobileCTA';
 import { AuditModal } from './components/AuditModal';
 import { StrategyModal } from './components/StrategyModal';
 import { PrivacyTermsModal } from './components/PrivacyTermsModal';
+import { NotFoundPage } from './components/NotFoundPage';
 
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(
+    typeof window !== 'undefined' ? window.location.pathname : '/'
+  );
   const [auditModalOpen, setAuditModalOpen] = useState(false);
   const [strategyModalOpen, setStrategyModalOpen] = useState(false);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | null>(null);
 
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
+
   const handleOpenAudit = () => setAuditModalOpen(true);
   const handleOpenStrategy = () => setStrategyModalOpen(true);
+
+  // If visiting an unknown subpage that isn't root
+  const is404 =
+    currentPath !== '/' &&
+    currentPath !== '' &&
+    currentPath !== '/index.html';
+
+  if (is404) {
+    return <NotFoundPage />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F9FAFB] text-[#111827] font-sans selection:bg-blue-600 selection:text-white pb-14 lg:pb-0">

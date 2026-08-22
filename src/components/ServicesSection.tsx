@@ -55,7 +55,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAudit })
           </span>
           
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-5">
-            SEO Services for Southampton Businesses
+            SEO Services in Southampton
           </h2>
 
           <p className="text-lg text-gray-600 leading-relaxed">

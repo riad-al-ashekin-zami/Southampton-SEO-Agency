@@ -21,7 +21,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onOpenAu
           </span>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-5">
-            SEO Results That Matter
+            Southampton SEO Results
           </h2>
 
           <p className="text-lg text-gray-600 leading-relaxed">

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+
+  <!-- Glow effect -->
+  <circle cx="1050" cy="180" r="300" fill="#2563EB" opacity="0.12" filter="blur(80px)" />
+  <circle cx="150" cy="500" r="250" fill="#38BDF8" opacity="0.08" filter="blur(80px)" />
+
+  <!-- Logo Mark -->
+  <g transform="translate(100, 100)">
+    <rect width="64" height="64" rx="16" fill="url(#blueGrad)" />
+    <text x="32" y="44" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="900" text-anchor="middle">S</text>
+    
+    <text x="84" y="42" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5px">Southampton<tspan fill="#60A5FA">SEO</tspan></text>
+  </g>
+
+  <!-- Pill Badge -->
+  <g transform="translate(100, 205)">
+    <rect width="330" height="38" rx="19" fill="rgba(37, 99, 235, 0.2)" stroke="rgba(96, 165, 250, 0.4)" stroke-width="1.5" />
+    <text x="165" y="24" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1.5px">SPECIALIST SEO AGENCY</text>
+  </g>
+
+  <!-- Headline -->
+  <text x="100" y="315" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="56" font-weight="800" letter-spacing="-1px" line-height="1.15">
+    SEO Agency Southampton
+  </text>
+  <text x="100" y="380" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="500">
+    Local SEO • Technical SEO • Commercial Strategy
+  </text>
+
+  <!-- Key Target Locations / Metrics Footer Box -->
+  <g transform="translate(100, 445)">
+    <rect width="1000" height="95" rx="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    
+    <!-- Item 1 -->
+    <text x="50" y="42" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" letter-spacing="1px">PRIMARY REGION</text>
+    <text x="50" y="68" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700">Southampton &amp; Hampshire</text>
+    
+    <line x1="330" y1="25" x2="330" y2="70" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+
+    <!-- Item 2 -->
+    <text x="380" y="42" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" letter-spacing="1px">CORE FOCUS</text>
+    <text x="380" y="68" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700">Commercial Enquiries &amp; ROI</text>
+
+    <line x1="680" y1="25" x2="680" y2="70" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+
+    <!-- Item 3 -->
+    <text x="730" y="42" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" letter-spacing="1px">CANONICAL WEBSITE</text>
+    <text x="730" y="68" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700">southamptonseo.agency</text>
+  </g>
+</svg>
