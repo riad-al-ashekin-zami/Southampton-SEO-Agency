@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Mail, Phone, MapPin, ArrowUp, ShieldCheck } from 'lucide-react';
+import { Search, MapPin, ArrowUp } from 'lucide-react';
 import { BRAND } from '../data/seoData';
 
 interface FooterProps {
@@ -38,14 +38,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit, onOpenPrivacy, onOp
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Southampton & Hampshire, United Kingdom</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-blue-400 shrink-0" />
-                <span className="font-mono">{BRAND.phonePlaceholder}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-400 shrink-0" />
-                <span className="font-mono">{BRAND.emailPlaceholder}</span>
               </div>
             </div>
           </div>

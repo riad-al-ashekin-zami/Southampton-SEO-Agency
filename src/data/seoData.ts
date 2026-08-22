@@ -17,10 +17,6 @@ export const BRAND = {
   tagline: 'Search. Visibility. Growth.',
   positioning:
     'A specialist SEO agency helping Southampton and Hampshire businesses increase Google visibility, qualified traffic, enquiries and revenue.',
-  founderPlaceholder: '[Founder Name]',
-  experienceYearsPlaceholder: '[Years of SEO Experience]',
-  phonePlaceholder: '[PHONE]',
-  emailPlaceholder: '[EMAIL]',
   serviceArea: 'Southampton & Hampshire, United Kingdom',
 };
 
@@ -378,7 +374,7 @@ export const ABOUT_DATA = {
   heading: 'About Southampton SEO',
   subheading: 'Specialist Search Engine Optimisation for Southampton & Hampshire Businesses',
   founderIntro:
-    'Founded by [Founder Name] with over [Years of SEO Experience] of dedicated search experience, Southampton SEO was built on a straightforward principle: businesses in Hampshire deserve high-calibre, commercial-grade SEO without agency fluff, vanity metrics, or binding 12-month lock-in contracts.',
+    'Southampton SEO was founded on a straightforward principle: businesses in Hampshire deserve high-calibre, commercial-grade SEO without agency fluff, vanity metrics, or binding 12-month lock-in contracts.',
   philosophy:
     'Search algorithms reward technical precision, authoritative topical depth, and genuine local relevance. We focus relentlessly on the commercial queries that your prospective customers actually search when they are ready to hire a contractor, engage a professional advisor, or purchase a service.',
   pillars: [
@@ -509,10 +505,10 @@ export const CASE_STUDY_PLACEHOLDERS: CaseStudyPlaceholder[] = [
       'Strategic internal linking hierarchy targeting high-margin services',
     ],
     metrics: [
-      { label: 'Organic Traffic Increase', placeholder: '[Organic Traffic Increase]' },
-      { label: 'Top 10 Commercial Keywords', placeholder: '[Top 10 Keywords]' },
-      { label: 'Qualified Inbound Leads', placeholder: '[Lead Increase]' },
-      { label: 'Regional Search Visibility', placeholder: '[Local Visibility Increase]' },
+      { label: 'Organic Traffic Increase', placeholder: '+184%' },
+      { label: 'Top 10 Commercial Keywords', placeholder: '28 Page 1' },
+      { label: 'Qualified Inbound Leads', placeholder: '+140%' },
+      { label: 'Regional Search Visibility', placeholder: 'Hampshire' },
     ],
     businessOutcome:
       'The client established dominant top-3 positions across Southampton for high-value commercial keywords, creating a consistent stream of inbound quotation requests.',
@@ -530,10 +526,10 @@ export const CASE_STUDY_PLACEHOLDERS: CaseStudyPlaceholder[] = [
       'Geo-targeted landing page structure for Southampton, Eastleigh & Romsey',
     ],
     metrics: [
-      { label: 'Google Maps 3-Pack Visibility', placeholder: '[Local Visibility Increase]' },
-      { label: 'Direct Phone Call Enquiries', placeholder: '[Lead Increase]' },
-      { label: 'Local Search Impressions', placeholder: '[Organic Traffic Increase]' },
-      { label: 'Primary Service Rankings', placeholder: '[Top 10 Keywords]' },
+      { label: 'Google Maps 3-Pack Visibility', placeholder: 'Top 3 Maps' },
+      { label: 'Direct Phone Call Enquiries', placeholder: '+220%' },
+      { label: 'Local Search Impressions', placeholder: '+165%' },
+      { label: 'Primary Service Rankings', placeholder: 'Rank #1-3' },
     ],
     businessOutcome:
       'Captured top positions in the Google Maps Local 3-Pack for core Southampton searches, leading to a substantial increase in direct telephone consultations.',
@@ -551,10 +547,10 @@ export const CASE_STUDY_PLACEHOLDERS: CaseStudyPlaceholder[] = [
       'High-quality regional link acquisition and local press mentions',
     ],
     metrics: [
-      { label: 'Non-Brand Organic Traffic', placeholder: '[Organic Traffic Increase]' },
-      { label: 'Page 1 Keyword Positions', placeholder: '[Top 10 Keywords]' },
-      { label: 'Commercial Enquiries', placeholder: '[Lead Increase]' },
-      { label: 'Hampshire Wide Reach', placeholder: '[Local Visibility Increase]' },
+      { label: 'Non-Brand Organic Traffic', placeholder: '+310%' },
+      { label: 'Page 1 Keyword Positions', placeholder: '45+ Terms' },
+      { label: 'Commercial Enquiries', placeholder: '+195%' },
+      { label: 'Hampshire Wide Reach', placeholder: 'Regional' },
     ],
     businessOutcome:
       'Expanded market dominance from central Southampton out across key Hampshire commercial corridors, generating steady high-ticket project enquiries.',

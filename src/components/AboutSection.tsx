@@ -88,11 +88,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                   <span>S</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">{BRAND.founderPlaceholder}</h3>
+                  <h3 className="text-xl font-bold text-gray-900">Southampton SEO</h3>
                   <p className="text-xs font-semibold text-blue-700 uppercase tracking-wide">
-                    Lead SEO Consultant & Strategist
+                    Senior SEO Consultants & Strategists
                   </p>
-                  <p className="text-xs text-gray-500 mt-0.5">{BRAND.experienceYearsPlaceholder}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">Southampton & Hampshire, United Kingdom</p>
                 </div>
               </div>
 
