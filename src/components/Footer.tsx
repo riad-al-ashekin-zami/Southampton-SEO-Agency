@@ -87,6 +87,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit, onOpenPrivacy, onOp
               <li>
                 <a href="#faqs" className="hover:text-white transition-colors">SEO FAQs</a>
               </li>
+              <li>
+                <a href="/partners" className="hover:text-white transition-colors">Partners</a>
+              </li>
             </ul>
           </div>
 

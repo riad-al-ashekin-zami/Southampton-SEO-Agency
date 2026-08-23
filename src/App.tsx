@@ -21,6 +21,7 @@ import { AuditModal } from './components/AuditModal';
 import { StrategyModal } from './components/StrategyModal';
 import { PrivacyTermsModal } from './components/PrivacyTermsModal';
 import { NotFoundPage } from './components/NotFoundPage';
+import { PartnersPage } from './components/PartnersPage';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(
@@ -42,11 +43,18 @@ export default function App() {
   const handleOpenAudit = () => setAuditModalOpen(true);
   const handleOpenStrategy = () => setStrategyModalOpen(true);
 
+  // Normalize path without trailing slash
+  const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+
+  // Dedicated clean Partners page
+  if (normalizedPath === '/partners') {
+    return <PartnersPage />;
+  }
+
   // If visiting an unknown subpage that isn't root
   const is404 =
-    currentPath !== '/' &&
-    currentPath !== '' &&
-    currentPath !== '/index.html';
+    normalizedPath !== '/' &&
+    normalizedPath !== '/index.html';
 
   if (is404) {
     return <NotFoundPage />;
