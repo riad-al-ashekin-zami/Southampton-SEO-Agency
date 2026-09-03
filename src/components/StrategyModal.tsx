@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-import { X, CheckCircle2, AlertCircle, PhoneCall, ArrowRight, Loader2, Calendar } from 'lucide-react';
+import { X, CheckCircle2, AlertCircle, Sparkles, ArrowRight, Loader2, Calendar } from 'lucide-react';
 import { StrategyCallFormData } from '../types';
 
 interface StrategyModalProps {
@@ -59,11 +59,11 @@ export const StrategyModal: React.FC<StrategyModalProps> = ({ isOpen, onClose })
         <div className="flex items-start justify-between pb-3 border-b border-gray-100 mb-5">
           <div>
             <span className="text-[11px] font-bold text-blue-700 uppercase tracking-wider bg-blue-50 px-2.5 py-0.5 rounded-md flex items-center gap-1 w-max border border-blue-100">
-              <PhoneCall className="w-3 h-3" />
+              <Sparkles className="w-3 h-3" />
               <span>Direct Consultation</span>
             </span>
             <h3 id="strategy-modal-title" className="text-xl font-extrabold text-gray-900 mt-1">
-              Book a Strategy Call
+              Book a Strategy Consultation
             </h3>
           </div>
           <button
@@ -81,7 +81,7 @@ export const StrategyModal: React.FC<StrategyModalProps> = ({ isOpen, onClose })
               <CheckCircle2 className="w-7 h-7" />
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-2">
-              Strategy Call Requested
+              Consultation Requested
             </h4>
             <p className="text-sm text-gray-600 leading-relaxed mb-6">
               Thank you. An SEO consultant will reach out during your preferred time window to confirm the calendar invitation.
@@ -173,7 +173,7 @@ export const StrategyModal: React.FC<StrategyModalProps> = ({ isOpen, onClose })
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="023 8000 0000"
+                  placeholder="023 8000 0568"
                   className={`w-full bg-gray-50 border ${
                     errors.phone ? 'border-red-500' : 'border-gray-200'
                   } rounded-lg px-3 py-2 text-xs text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600`}
@@ -218,12 +218,12 @@ export const StrategyModal: React.FC<StrategyModalProps> = ({ isOpen, onClose })
               {state.submitting ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Scheduling Call...</span>
+                  <span>Submitting Request...</span>
                 </>
               ) : (
                 <>
-                  <PhoneCall className="w-4 h-4" />
-                  <span>Confirm Strategy Call Request</span>
+                  <Sparkles className="w-4 h-4" />
+                  <span>Confirm Consultation Request</span>
                 </>
               )}
             </button>

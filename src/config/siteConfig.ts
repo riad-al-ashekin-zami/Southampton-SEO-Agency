@@ -4,8 +4,9 @@
  */
 
 export const SITE_CONFIG = {
-  name: 'Southampton SEO',
-  legalName: 'Southampton SEO Agency',
+  name: 'Southampton Seo Firm',
+  alternateName: 'Southampton SEO',
+  legalName: 'Southampton Seo Firm',
   domain: 'southamptonseo.agency',
   canonicalUrl: 'https://southamptonseo.agency/',
   tagline: 'Search. Visibility. Growth.',
@@ -19,35 +20,30 @@ export const SITE_CONFIG = {
   country: 'United Kingdom',
   region: 'Hampshire',
   city: 'Southampton',
-  postalCodePlaceholder: 'SO14',
+  postalCode: 'SO14 0LS',
   addressCountry: 'GB',
   
-  // Target Service Areas across Hampshire
-  serviceAreas: [
-    'Southampton',
-    'Hampshire',
-    'Eastleigh',
-    'Winchester',
-    'Romsey',
-    'Fareham',
-    'Totton',
-    'Hedge End',
-  ],
-
-  // Contact Information Placeholders (Ready to replace when real details are supplied)
+  // Verified Google Business Profile NAP
   contact: {
-    phonePlaceholder: '[PHONE]',
-    emailPlaceholder: '[EMAIL]',
-    addressPlaceholder: '[Business Address, Southampton, Hampshire, UK]',
-    openingHoursPlaceholder: 'Mo-Fr 09:00-17:30',
+    phone: '023 8000 0568',
+    phoneIntl: '+44 23 8000 0568',
+    phoneClean: '+442380000568',
+    emailPlaceholder: 'enquiries@southamptonseo.agency',
+    streetAddress: '51 Cranbury Ave',
+    addressLocality: 'Southampton',
+    addressRegion: 'Hampshire',
+    postalCode: 'SO14 0LS',
+    addressFormatted: '51 Cranbury Ave, Southampton SO14 0LS, United Kingdom',
+    openingHours: 'Mo-Fr 09:00-18:00',
+    openingHoursDisplay: 'Monday – Friday: 9:00 AM – 6:00 PM',
   },
 
-  // Social Profile Placeholders (Add when real accounts are active)
+  // Social & GBP Links
   socials: {
     linkedin: '',
     twitter: '',
     facebook: '',
-    googleBusinessProfile: '',
+    googleBusinessProfile: 'https://maps.app.goo.gl/2VUmAmA2bpZi3ThRA',
   },
 
   // Future Architectural Routes (Indexable when rich unique content is ready)

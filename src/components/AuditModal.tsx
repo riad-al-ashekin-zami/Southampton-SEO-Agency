@@ -179,7 +179,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="023 8000 0000"
+                  placeholder="023 8000 0568"
                   className={`w-full bg-gray-50 border ${
                     errors.phone ? 'border-red-500' : 'border-gray-200'
                   } rounded-lg px-3 py-2 text-xs text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600`}

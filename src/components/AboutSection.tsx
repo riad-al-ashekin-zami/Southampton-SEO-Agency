@@ -10,6 +10,10 @@ import {
   Award,
   Users,
   Target,
+  MapPin,
+  Phone,
+  Clock,
+  ExternalLink,
 } from 'lucide-react';
 import { ABOUT_DATA, BRAND } from '../data/seoData';
 
@@ -80,44 +84,92 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             </div>
           </div>
 
-          {/* Right Card: Consultant Profile / Agency Ethos */}
+          {/* Right Card: Verified Google Business Profile & NAP Card */}
           <div className="lg:col-span-5">
-            <div className="bg-[#F9FAFB] border border-gray-200/80 rounded-2xl p-7 sm:p-8 shadow-xs relative">
-              <div className="flex items-center gap-4 mb-6 pb-6 border-b border-gray-200">
-                <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold text-2xl shadow-sm">
+            <div className="bg-[#F9FAFB] border border-gray-200/80 rounded-2xl p-6 sm:p-7 shadow-xs relative">
+              <div className="flex items-center gap-3.5 mb-5 pb-5 border-b border-gray-200">
+                <div className="w-13 h-13 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold text-xl shadow-sm">
                   <span>S</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">Southampton SEO</h3>
-                  <p className="text-xs font-semibold text-blue-700 uppercase tracking-wide">
-                    Senior SEO Consultants & Strategists
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                      Google Verified
+                    </span>
+                    <span className="text-[10px] text-gray-500">Local Business</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 leading-snug">
+                    {BRAND.name}
+                  </h3>
+                  <p className="text-xs font-medium text-blue-700">
+                    {BRAND.category}
                   </p>
-                  <p className="text-xs text-gray-500 mt-0.5">Southampton & Hampshire, United Kingdom</p>
                 </div>
               </div>
 
-              <div className="space-y-3.5 text-xs sm:text-sm text-gray-700 mb-6">
+              {/* Exact NAP Information */}
+              <div className="space-y-3 text-xs sm:text-sm text-gray-700 mb-6 bg-white p-4 rounded-xl border border-gray-200/70">
                 <div className="flex items-start gap-2.5">
-                  <Target className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <span>Direct consulting with senior SEO specialists, not junior account handlers.</span>
+                  <MapPin className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                  <span className="leading-snug">
+                    <strong className="text-gray-900 font-semibold block">Business Address:</strong>
+                    {BRAND.address.formatted}
+                  </span>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <span>Complete white-hat compliance with Google Search Essentials and Webmaster guidelines.</span>
+
+                <div className="flex items-center gap-2.5">
+                  <Phone className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span>
+                    <strong className="text-gray-900 font-semibold mr-1.5">Direct Line:</strong>
+                    <span className="text-gray-900 font-semibold">
+                      {BRAND.phone} ({BRAND.phoneDisplay})
+                    </span>
+                  </span>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <TrendingUp className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <span>Proactive monthly recommendations that drive real, measurable ROI.</span>
+
+                <div className="flex items-center gap-2.5">
+                  <Clock className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span>
+                    <strong className="text-gray-900 font-semibold mr-1.5">Opening Hours:</strong>
+                    {BRAND.hours} ({BRAND.hoursShort})
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between pt-2 border-t border-gray-100 text-xs">
+                  <span className="text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                    Google Verified Business Profile
+                  </span>
+                  <a
+                    href={BRAND.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 font-bold text-blue-600 hover:text-blue-700 hover:underline"
+                  >
+                    <span>View on Google Maps</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-2.5 pt-2">
+              <div className="space-y-2.5 text-xs text-gray-600 mb-6">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Consistent local NAP across citations and Google Maps</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Target className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span>Direct consulting with senior SEO strategists</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-2.5 pt-1">
                 <button
                   onClick={onOpenStrategy}
                   type="button"
                   className="flex-1 bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-bold py-2.5 px-4 rounded-xl text-xs text-center transition-colors shadow-2xs"
                 >
-                  Book a Consultation
+                  Book Consultation
                 </button>
                 <button
                   onClick={onOpenAudit}

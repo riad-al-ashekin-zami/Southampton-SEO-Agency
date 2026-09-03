@@ -4,7 +4,6 @@ import {
   XCircle,
   ArrowRight,
   Sparkles,
-  PhoneCall,
   ShieldCheck,
   Zap,
   HelpCircle,
@@ -306,11 +305,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             <button
               onClick={onOpenStrategy}
               type="button"
-              id="pricing-subcta-call-btn"
+              id="pricing-subcta-consult-btn"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-bold text-sm px-6 py-4 rounded-xl border border-gray-700 transition-all active:scale-[0.99]"
             >
-              <PhoneCall className="w-4 h-4 text-blue-400" />
-              <span>Book Strategy Call</span>
+              <Sparkles className="w-4 h-4 text-blue-400" />
+              <span>Book Consultation</span>
             </button>
           </div>
         </div>

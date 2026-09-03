@@ -87,7 +87,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenStrategy }) => {
             type="button"
             className="inline-flex items-center gap-1.5 text-sm font-bold text-blue-600 hover:text-blue-700 underline underline-offset-4"
           >
-            <span>Speak directly with an SEO specialist on a strategy call</span>
+            <span>Speak directly with an SEO specialist for a free consultation</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

@@ -22,6 +22,14 @@ import { StrategyModal } from './components/StrategyModal';
 import { PrivacyTermsModal } from './components/PrivacyTermsModal';
 import { NotFoundPage } from './components/NotFoundPage';
 import { PartnersPage } from './components/PartnersPage';
+import { SeoServicesSouthamptonPage } from './pages/SeoServicesSouthamptonPage';
+import { SeoConsultantSouthamptonPage } from './pages/SeoConsultantSouthamptonPage';
+import { LocalSeoSouthamptonPage } from './pages/LocalSeoSouthamptonPage';
+import { SeoEastleighPage } from './pages/SeoEastleighPage';
+import { SeoAgencyHampshirePage } from './pages/SeoAgencyHampshirePage';
+import { SeoPricingPackagesPage } from './pages/SeoPricingPackagesPage';
+import { SEOHead } from './components/SEOHead';
+import { BRAND } from './data/seoData';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(
@@ -46,6 +54,31 @@ export default function App() {
   // Normalize path without trailing slash
   const normalizedPath = currentPath.replace(/\/$/, '') || '/';
 
+  // Dedicated SEO Service and Location Pages
+  if (normalizedPath === '/seo-services-southampton') {
+    return <SeoServicesSouthamptonPage />;
+  }
+
+  if (normalizedPath === '/seo-consultant-southampton') {
+    return <SeoConsultantSouthamptonPage />;
+  }
+
+  if (normalizedPath === '/local-seo-southampton') {
+    return <LocalSeoSouthamptonPage />;
+  }
+
+  if (normalizedPath === '/seo-eastleigh') {
+    return <SeoEastleighPage />;
+  }
+
+  if (normalizedPath === '/seo-agency-hampshire') {
+    return <SeoAgencyHampshirePage />;
+  }
+
+  if (normalizedPath === '/seo-pricing-packages') {
+    return <SeoPricingPackagesPage />;
+  }
+
   // Dedicated clean Partners page
   if (normalizedPath === '/partners') {
     return <PartnersPage />;
@@ -60,8 +93,82 @@ export default function App() {
     return <NotFoundPage />;
   }
 
+  const homepageSchema = [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://southamptonseo.agency/#website',
+      url: 'https://southamptonseo.agency/',
+      name: BRAND.name,
+      alternateName: BRAND.tradeName,
+      description: 'Specialist SEO Agency and Internet Marketing Service in Southampton and Hampshire',
+      inLanguage: 'en-GB',
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://southamptonseo.agency/#organization',
+      name: BRAND.name,
+      alternateName: BRAND.tradeName,
+      url: 'https://southamptonseo.agency/',
+      telephone: BRAND.phoneDisplay,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: BRAND.address.street,
+        addressLocality: BRAND.address.city,
+        addressRegion: 'Hampshire',
+        postalCode: BRAND.address.postcode,
+        addressCountry: BRAND.address.countryCode,
+      },
+      hasMap: BRAND.mapsUrl,
+      description: 'Specialist search engine optimization agency and internet marketing service based in Southampton, Hampshire.',
+    },
+    {
+      '@type': ['LocalBusiness', 'ProfessionalService'],
+      '@id': 'https://southamptonseo.agency/#localservice',
+      name: BRAND.name,
+      alternateName: BRAND.tradeName,
+      legalName: BRAND.legalName,
+      url: 'https://southamptonseo.agency/',
+      telephone: BRAND.phoneDisplay,
+      image: 'https://southamptonseo.agency/og-image.svg',
+      description:
+        'Southampton SEO firm providing local SEO, Google Maps 3-Pack optimization, technical SEO, content strategy, and organic marketing across Southampton and Hampshire.',
+      priceRange: '£299 - £799',
+      currenciesAccepted: 'GBP',
+      paymentAccepted: 'Bank Transfer, Credit Card, Direct Debit',
+      hasMap: BRAND.mapsUrl,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: BRAND.address.street,
+        addressLocality: BRAND.address.city,
+        addressRegion: 'Hampshire',
+        postalCode: BRAND.address.postcode,
+        addressCountry: BRAND.address.countryCode,
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 50.9169,
+        longitude: -1.3986,
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '18:00',
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F9FAFB] text-[#111827] font-sans selection:bg-blue-600 selection:text-white pb-14 lg:pb-0">
+      <SEOHead
+        title="SEO Agency Southampton | Southampton Seo Firm"
+        description="Specialist SEO agency in Southampton and Hampshire helping businesses increase Google visibility, qualified organic traffic, enquiries and revenue."
+        canonicalUrl="https://southamptonseo.agency/"
+        schema={homepageSchema}
+      />
+
       {/* 1. Sticky Header */}
       <Header
         onOpenAudit={handleOpenAudit}

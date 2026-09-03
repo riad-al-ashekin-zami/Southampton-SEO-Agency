@@ -101,7 +101,7 @@ export const WhyUsSection: React.FC<WhyUsSectionProps> = ({ onOpenAudit, onOpenS
               type="button"
               className="w-full sm:w-auto bg-white hover:bg-gray-100 text-gray-900 font-bold text-sm px-6 py-3.5 rounded-xl transition-all shadow-xs"
             >
-              Book a Strategy Call
+              Book Consultation
             </button>
             <button
               onClick={onOpenAudit}

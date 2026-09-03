@@ -12,12 +12,34 @@ import {
 } from '../types';
 
 export const BRAND = {
-  name: 'Southampton SEO',
+  name: 'Southampton Seo Firm',
+  tradeName: 'Southampton SEO',
+  legalName: 'Southampton Seo Firm',
   domain: 'southamptonseo.agency',
   tagline: 'Search. Visibility. Growth.',
   positioning:
     'A specialist SEO agency helping Southampton and Hampshire businesses increase Google visibility, qualified traffic, enquiries and revenue.',
   serviceArea: 'Southampton & Hampshire, United Kingdom',
+  category: 'Internet marketing service',
+  
+  // Google Business Profile Verified NAP (Name, Address, Phone)
+  phone: '023 8000 0568',
+  phoneDisplay: '+44 23 8000 0568',
+  phoneClean: '+442380000568',
+  
+  address: {
+    street: '51 Cranbury Ave',
+    city: 'Southampton',
+    postcode: 'SO14 0LS',
+    country: 'United Kingdom',
+    countryCode: 'GB',
+    formatted: '51 Cranbury Ave, Southampton SO14 0LS, United Kingdom',
+  },
+  
+  hours: 'Mon – Fri: 9:00 AM – 6:00 PM',
+  hoursShort: 'Open · Closes 6 PM',
+  mapsUrl: 'https://maps.app.goo.gl/2VUmAmA2bpZi3ThRA',
+  plusCode: 'WJ73+GQ Southampton, United Kingdom',
 };
 
 export const SERVICES: ServiceItem[] = [

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, PhoneCall, ShieldCheck, Search } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Menu, X, ArrowRight, ChevronDown, Sparkles, MapPin } from 'lucide-react';
 import { BRAND } from '../data/seoData';
+import { navigateTo } from '../utils/navigation';
 
 interface HeaderProps {
   onOpenAudit: () => void;
@@ -10,6 +11,11 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenAudit, onOpenStrategy }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [locationsDropdownOpen, setLocationsDropdownOpen] = useState(false);
+
+  const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const locationsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,15 +25,55 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAudit, onOpenStrategy }) =
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Why Us', href: '#why-us' },
-    { name: 'Process', href: '#process' },
-    { name: 'Results', href: '#results' },
-    { name: 'About', href: '#about' },
-    { name: 'Areas', href: '#areas' },
-    { name: 'FAQs', href: '#faqs' },
+  const handleHashLink = (hash: string, event: React.MouseEvent) => {
+    const isRoot = window.location.pathname === '/' || window.location.pathname === '';
+    if (isRoot) {
+      // Smooth scroll to section
+      event.preventDefault();
+      const el = document.querySelector(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to homepage with hash
+      navigateTo('/' + hash, event);
+    }
+  };
+
+  const serviceSublinks = [
+    {
+      title: 'SEO Services Southampton',
+      desc: 'Full-suite organic optimization campaigns',
+      href: '/seo-services-southampton/',
+    },
+    {
+      title: 'SEO Consultant Southampton',
+      desc: 'Senior-level consulting & forensic audits',
+      href: '/seo-consultant-southampton/',
+    },
+    {
+      title: 'Local SEO & Maps 3-Pack',
+      desc: 'Google Business Profile & NAP citations',
+      href: '/local-seo-southampton/',
+    },
+  ];
+
+  const locationSublinks = [
+    {
+      title: 'Southampton (HQ)',
+      desc: 'City Centre, SO14-SO19 coverage',
+      href: '/',
+    },
+    {
+      title: 'SEO Eastleigh',
+      desc: 'Boyatt Wood & Chandlers Ford (SO50/SO53)',
+      href: '/seo-eastleigh/',
+    },
+    {
+      title: 'SEO Agency Hampshire',
+      desc: 'Winchester, Portsmouth & County-wide',
+      href: '/seo-agency-hampshire/',
+    },
   ];
 
   return (
@@ -43,7 +89,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAudit, onOpenStrategy }) =
         <div className="flex items-center justify-between">
           {/* Brand Logo */}
           <a
-            href="#"
+            href="/"
+            onClick={(e) => navigateTo('/', e)}
             id="brand-logo-link"
             className="flex items-center gap-2.5 group focus:outline-hidden"
             aria-label="Southampton SEO - Home"
@@ -62,29 +109,162 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAudit, onOpenStrategy }) =
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Main Navigation">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors py-1 focus-visible:ring-2 focus-visible:ring-blue-600 rounded-md px-1"
+          <nav className="hidden lg:flex items-center gap-7" aria-label="Main Navigation">
+            {/* Services Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => {
+                if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
+                setServicesDropdownOpen(true);
+              }}
+              onMouseLeave={() => {
+                servicesTimeoutRef.current = setTimeout(() => setServicesDropdownOpen(false), 150);
+              }}
+            >
+              <button
+                type="button"
+                onClick={(e) => handleHashLink('#services', e)}
+                className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-1 focus-visible:ring-2 focus-visible:ring-blue-600 rounded-md px-1"
+                aria-expanded={servicesDropdownOpen}
               >
-                {link.name}
-              </a>
-            ))}
+                <span>Services</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${servicesDropdownOpen ? 'rotate-180 text-blue-600' : 'text-gray-400'}`} />
+              </button>
+
+              {servicesDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1.5 w-72 bg-white rounded-xl shadow-xl border border-gray-100 p-2 py-2.5 z-50 animate-in fade-in-50 zoom-in-95 duration-100">
+                  <div className="px-3 py-1.5 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                    Specialist SEO Services
+                  </div>
+                  {serviceSublinks.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={(e) => {
+                        setServicesDropdownOpen(false);
+                        navigateTo(item.href, e);
+                      }}
+                      className="block px-3 py-2 rounded-lg hover:bg-blue-50/70 transition-colors group"
+                    >
+                      <div className="text-xs font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        {item.title}
+                      </div>
+                      <div className="text-[11px] text-gray-500 mt-0.5 leading-tight">
+                        {item.desc}
+                      </div>
+                    </a>
+                  ))}
+                  <div className="mt-1 pt-1.5 border-t border-gray-100">
+                    <a
+                      href="/#services"
+                      onClick={(e) => {
+                        setServicesDropdownOpen(false);
+                        handleHashLink('#services', e);
+                      }}
+                      className="block px-3 py-1.5 text-[11px] font-semibold text-blue-600 hover:text-blue-700"
+                    >
+                      View all service modules →
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Locations Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => {
+                if (locationsTimeoutRef.current) clearTimeout(locationsTimeoutRef.current);
+                setLocationsDropdownOpen(true);
+              }}
+              onMouseLeave={() => {
+                locationsTimeoutRef.current = setTimeout(() => setLocationsDropdownOpen(false), 150);
+              }}
+            >
+              <button
+                type="button"
+                className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-1 focus-visible:ring-2 focus-visible:ring-blue-600 rounded-md px-1"
+                aria-expanded={locationsDropdownOpen}
+              >
+                <span>Locations</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${locationsDropdownOpen ? 'rotate-180 text-blue-600' : 'text-gray-400'}`} />
+              </button>
+
+              {locationsDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1.5 w-64 bg-white rounded-xl shadow-xl border border-gray-100 p-2 py-2.5 z-50 animate-in fade-in-50 zoom-in-95 duration-100">
+                  <div className="px-3 py-1.5 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                    Target Coverage
+                  </div>
+                  {locationSublinks.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={(e) => {
+                        setLocationsDropdownOpen(false);
+                        navigateTo(item.href, e);
+                      }}
+                      className="block px-3 py-2 rounded-lg hover:bg-blue-50/70 transition-colors group"
+                    >
+                      <div className="text-xs font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        {item.title}
+                      </div>
+                      <div className="text-[11px] text-gray-500 mt-0.5 leading-tight">
+                        {item.desc}
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <a
+              href="/seo-pricing-packages/"
+              onClick={(e) => navigateTo('/seo-pricing-packages/', e)}
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-1"
+            >
+              Pricing
+            </a>
+
+            <a
+              href="/#process"
+              onClick={(e) => handleHashLink('#process', e)}
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-1"
+            >
+              Process
+            </a>
+
+            <a
+              href="/#results"
+              onClick={(e) => handleHashLink('#results', e)}
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-1"
+            >
+              Results
+            </a>
+
+            <a
+              href="/#faqs"
+              onClick={(e) => handleHashLink('#faqs', e)}
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-1"
+            >
+              FAQs
+            </a>
+
+            <a
+              href="/partners/"
+              onClick={(e) => navigateTo('/partners/', e)}
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-1"
+            >
+              Partners
+            </a>
           </nav>
 
           {/* Header Action Buttons */}
           <div className="hidden sm:flex items-center gap-3">
-            <button
-              onClick={onOpenStrategy}
-              id="header-strategy-btn"
-              type="button"
-              className="text-sm font-semibold text-gray-700 hover:text-blue-600 px-3 py-2 rounded-lg transition-colors inline-flex items-center gap-1.5 focus:outline-hidden"
-            >
-              <PhoneCall className="w-4 h-4 text-blue-600" />
-              <span>Book Strategy Call</span>
-            </button>
+            <div className="hidden xl:flex items-center gap-1.5 text-xs font-semibold text-gray-700 bg-gray-50 border border-gray-200/80 px-3 py-2 rounded-lg">
+              <span className="text-gray-400 font-normal">Direct:</span>
+              <span className="text-gray-900 font-bold">{BRAND.phone}</span>
+            </div>
+
             <button
               onClick={onOpenAudit}
               id="header-audit-btn"
@@ -123,20 +303,141 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAudit, onOpenStrategy }) =
       {mobileMenuOpen && (
         <div
           id="mobile-menu-drawer"
-          className="lg:hidden bg-white border-b border-gray-100 px-4 pt-3 pb-6 shadow-lg animate-in slide-in-from-top-2 duration-150"
+          className="lg:hidden bg-white border-b border-gray-100 px-4 pt-3 pb-6 shadow-lg animate-in slide-in-from-top-2 duration-150 max-h-[85vh] overflow-y-auto"
         >
-          <nav className="flex flex-col space-y-3 mb-5" aria-label="Mobile Navigation">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-blue-50/50 px-3 py-2.5 rounded-lg transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
+          <div className="space-y-4 mb-5">
+            <div>
+              <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider px-3 mb-1">
+                Pages & Services
+              </div>
+              <div className="space-y-1">
+                <a
+                  href="/seo-services-southampton/"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    navigateTo('/seo-services-southampton/', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  SEO Services Southampton
+                </a>
+                <a
+                  href="/seo-consultant-southampton/"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    navigateTo('/seo-consultant-southampton/', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  SEO Consultant Southampton
+                </a>
+                <a
+                  href="/local-seo-southampton/"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    navigateTo('/local-seo-southampton/', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  Local SEO & Google Maps
+                </a>
+                <a
+                  href="/seo-pricing-packages/"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    navigateTo('/seo-pricing-packages/', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  SEO Packages & Pricing
+                </a>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-100 pt-3">
+              <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider px-3 mb-1">
+                Locations
+              </div>
+              <div className="space-y-1">
+                <a
+                  href="/"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    navigateTo('/', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  Southampton (HQ)
+                </a>
+                <a
+                  href="/seo-eastleigh/"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    navigateTo('/seo-eastleigh/', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  Eastleigh & Boyatt Wood
+                </a>
+                <a
+                  href="/seo-agency-hampshire/"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    navigateTo('/seo-agency-hampshire/', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  County-Wide Hampshire
+                </a>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-100 pt-3">
+              <div className="space-y-1">
+                <a
+                  href="/#process"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    handleHashLink('#process', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  4-Step Process
+                </a>
+                <a
+                  href="/#results"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    handleHashLink('#results', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  Client Results
+                </a>
+                <a
+                  href="/#faqs"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    handleHashLink('#faqs', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  FAQs
+                </a>
+                <a
+                  href="/partners/"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    navigateTo('/partners/', e);
+                  }}
+                  className="block text-sm font-medium text-gray-800 hover:text-blue-600 px-3 py-2 rounded-lg"
+                >
+                  Partners
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-col gap-2.5 pt-2 border-t border-gray-100">
             <button
               onClick={() => {
@@ -150,21 +451,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAudit, onOpenStrategy }) =
               <span>Get Free SEO Audit</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenStrategy();
-              }}
-              type="button"
-              id="mobile-drawer-strategy-btn"
-              className="w-full inline-flex items-center justify-center gap-2 bg-gray-50 text-gray-800 font-semibold py-3 rounded-full text-sm hover:bg-gray-100 border border-gray-200"
-            >
-              <PhoneCall className="w-4 h-4 text-blue-600" />
-              <span>Book a Strategy Call</span>
-            </button>
+            <div className="w-full text-center py-2.5 text-xs text-gray-600 bg-gray-50 rounded-xl border border-gray-200/60">
+              <span className="text-gray-500">Direct Phone: </span>
+              <strong className="text-gray-900 font-semibold">{BRAND.phone}</strong>
+            </div>
           </div>
         </div>
       )}
     </header>
   );
 };
+

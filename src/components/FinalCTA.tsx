@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, PhoneCall, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 
 interface FinalCTAProps {
   onOpenAudit: () => void;
@@ -54,8 +54,8 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenAudit, onOpenStrategy 
             type="button"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gray-800/80 hover:bg-gray-800 text-white border border-gray-700 font-semibold text-base px-7 py-4 rounded-xl backdrop-blur-xs transition-all active:scale-[0.99] focus:outline-hidden"
           >
-            <PhoneCall className="w-5 h-5 text-blue-400" />
-            <span>Book a Strategy Call</span>
+            <Sparkles className="w-5 h-5 text-blue-400" />
+            <span>Book a Consultation</span>
           </button>
         </div>
 
