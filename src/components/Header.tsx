@@ -260,11 +260,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAudit, onOpenStrategy }) =
 
           {/* Header Action Buttons */}
           <div className="hidden sm:flex items-center gap-3">
-            <div className="hidden xl:flex items-center gap-1.5 text-xs font-semibold text-gray-700 bg-gray-50 border border-gray-200/80 px-3 py-2 rounded-lg">
-              <span className="text-gray-400 font-normal">Direct:</span>
-              <span className="text-gray-900 font-bold">{BRAND.phone}</span>
-            </div>
-
             <button
               onClick={onOpenAudit}
               id="header-audit-btn"
@@ -451,10 +446,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAudit, onOpenStrategy }) =
               <span>Get Free SEO Audit</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-            <div className="w-full text-center py-2.5 text-xs text-gray-600 bg-gray-50 rounded-xl border border-gray-200/60">
-              <span className="text-gray-500">Direct Phone: </span>
-              <strong className="text-gray-900 font-semibold">{BRAND.phone}</strong>
-            </div>
           </div>
         </div>
       )}

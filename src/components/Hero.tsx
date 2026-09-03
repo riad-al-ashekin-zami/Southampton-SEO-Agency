@@ -125,11 +125,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit, onOpenStrategy }) => {
                 <span>View SEO Packages</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
-
-              <div className="inline-flex items-center gap-2 text-gray-700 text-sm py-1.5 font-medium">
-                <span className="text-gray-400">Direct Line:</span>
-                <span className="font-bold text-gray-900">{BRAND.phone}</span>
-              </div>
             </div>
 
             {/* Google Business Trust Bar */}
